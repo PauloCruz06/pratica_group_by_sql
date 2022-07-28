@@ -26,3 +26,23 @@ FROM jobs
 JOIN roles ON
 jobs."roleId" = roles.id
 GROUP BY roles.name;
+
+--Questão Bônus
+SELECT
+	schools.name AS school,
+	courses.name AS course,
+	COUNT(educations."userId") AS "studentsCount",
+	educations.status AS "role"
+FROM educations
+JOIN schools ON
+schools.id = educations."schoolId"
+JOIN courses ON
+courses.id = educations."courseId"
+WHERE educations.status = 'finished'
+OR educations.status = 'ongoing'
+GROUP BY
+	schools.name,
+	courses.name,
+	educations.status
+ORDER BY "studentsCount" DESC
+LIMIT 3;
