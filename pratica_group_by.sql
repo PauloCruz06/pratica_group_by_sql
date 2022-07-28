@@ -9,3 +9,11 @@ SELECT
 FROM educations
 WHERE status = 'finished'
 GROUP BY "userId";
+
+--Questão 3
+SELECT
+	"writerId" AS writer,
+	COUNT("message") AS testimonials
+FROM testimonials
+WHERE "writerId" = 435
+GROUP BY "writerId";
