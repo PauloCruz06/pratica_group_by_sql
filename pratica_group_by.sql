@@ -17,3 +17,12 @@ SELECT
 FROM testimonials
 WHERE "writerId" = 435
 GROUP BY "writerId";
+
+--Questão 4
+SELECT
+	MAX(jobs.salary) AS "maximumSalary",
+	roles.name AS "role"
+FROM jobs
+JOIN roles ON
+jobs."roleId" = roles.id
+GROUP BY roles.name;
